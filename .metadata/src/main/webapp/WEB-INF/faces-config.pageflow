@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15182673326540" configfile="/loan-quote-WebApp/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf15873186973890" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15873186973892 pf15873187056174" inlinks="pf15873186973892" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" id="pf15873187056175" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15873187056174" path="/home.xhtml"/>
+  <links id="pf15873186973892" target="pf15873186973890" source="pf15873186973890" outcome="login" fromaction="#{login.validateUsernamePassword}"/>
+  <links id="pf15873187056174" target="pf15873187056175" source="pf15873186973890" outcome="OK" redirect="true" fromaction="#{login.validateUsernamePassword}"/>
+</pageflow:Pageflow>

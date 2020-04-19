@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Loan Calculator WebApp</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="initial-scale=1" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/png"
+		href="#{request.contextPath}/resources/img/favicon-16x16.png"
+		sizes="16x16" />
+	<link rel="icon" type="image/png"
+		href="#{request.contextPath}/resources/img/favicon-32x32.png"
+		sizes="32x32" />
+	<link rel="icon" type="image/png"
+		href="#{request.contextPath}/resources/img/favicon-48x48.png"
+		sizes="48x48" />
+
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/dist/css/AdminLTE.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/dist/css/skins/skin-blue.min.css" />
+	<link rel="stylesheet"
+		href="#{request.contextPath}/resources/css/font-awesome.min.css" />
+	<link rel="stylesheet"
+		href="#{request.contextPath}/resources/css/ionicons.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/custom_css_login.css" />
+
+</h:head>
+<h:body>
+	<style>
+.ui-messages-error-summary {
+	margin-left: 0px !important;
+	font-size: 13px !important;
+}
+
+.ui-messages-error-icon {
+	display: none !important;
+}
+</style>
+
+
+	<div class="container">
+		<div class="wrapper">
+
+
+
+
+			<h:form styleClass="form-signin">
+
+
+				<div class="ui-fluid" style="margin-top: 7%;">
+					<p:panel closable="true">
+
+						<h:graphicImage styleClass="logo-login" style="margin-bottom:10%;"
+							value="./resources/images/logo.png" />
+
+
+						<!--   <hr class="colorgraph"/><br/> -->
+						<p:messages id="messages" showDetail="false" closable="true" />
+
+						<p:panelGrid columns="1" columnClasses="ui-grid-col-12"
+							layout="grid" styleClass="ui-panelgrid-blank">
+
+							<p:inputText id="j_loan" required="true"
+								label="Insert Value Loan" value="#{loanQuoteApplication.loan}"
+								styleClass="input-login" type="number" />
+							<p:watermark for="j_loan" value="Insert Value" id="j_username_ph" />
+
+
+
+						</p:panelGrid>
+
+						<hr class="colorgraph" />
+						<br />
+
+						<p:commandButton type="submit" id="submit" value="Calculate"
+							action="#{loanQuoteApplication.loanQuoteCalculator}"
+							onsuccess="PF('dlgResultLoanWv').show();" onerror="PF('dlgResultLoanErrorWv').show();" update="myOutputPanel"
+							styleClass="btn-custom button-login" />
+
+					</p:panel>
+				</div>
+			</h:form>
+
+			<p:dialog id="dlgResultLoan" widgetVar="dlgResultLoanWv" width="50%"
+				height="50%">
+				<p:outputPanel id="myOutputPanel">
+
+					<table class="fixed_table_form"  >
+
+						<tr>
+							<td class="td_left"><h:outputText
+									value="Requested amount : " /></td>
+							<td><p:inputText id="j_loanAm" 
+									disabled="true"
+									value="#{loanQuoteApplication.quote.loanAmount}" /></td>
+						</tr>
+						
+							<tr>
+							<td class="td_left"><h:outputText
+									value="Rate (%): " /></td>
+							<td><p:inputText id="j_loanRate" 
+									disabled="true"
+									value="#{loanQuoteApplication.quote.rate}" /></td>
+						</tr>
+			<tr>
+							<td class="td_left"><h:outputText
+									value="Monthly repayment: " /></td>
+							<td><p:inputText id="j_loanMon" 
+									disabled="true"
+									value="#{loanQuoteApplication.quote.monthlyRepayment}" /></td>
+						</tr>
+							<tr>
+							<td class="td_left"><h:outputText
+									value="Total repayment: " /></td>
+							<td><p:inputText id="j_loanRep" 
+									disabled="true"
+									value="#{loanQuoteApplication.quote.totalRepayment}" /></td>
+						</tr>
+						
+						
+						
+					</table>
+
+
+					
+				</p:outputPanel>
+				
+				
+				
+			</p:dialog>
+			
+			
+				<p:dialog id="dlgResultLoanError" widgetVar="dlgResultLoanErrorWv" width="50%"
+				height="50%">
+				<b>Insufficient offers from lenders to satisfy the loan. Try a smaller loan amount.</b>
+				</p:dialog>
+		</div>
+	</div>
+</h:body>
+</html>

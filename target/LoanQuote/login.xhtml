@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+	    xmlns:f="http://java.sun.com/jsf/core"
+	    xmlns:ui="http://java.sun.com/jsf/facelets"
+	    xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Login Loan</title>
+	
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="initial-scale=1"/>
+	<meta name="viewport" content="width=device-width" />
+	
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/dist/css/AdminLTE.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/dist/css/skins/skin-blue.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+	<link rel="stylesheet" type="text/css"
+				href="#{request.contextPath}/resources/css/custom_css_login.css" />
+
+</h:head>
+<h:body>
+
+<div class="container">
+	<div class="wrapper">
+	
+	
+		<h:form styleClass="form-signin" >			
+			<div class="ui-fluid">
+			<p:panel closable="true" >
+			
+			
+		   <h:graphicImage value="../#{request.contextPath}/resources/images/logo.png"  styleClass="logo-login" />
+			 
+		 <!--   <hr class="colorgraph"/><br/> -->
+		   <p:messages id="messages" showDetail="false" closable="true" />  	 
+		     
+				<p:panelGrid columns="1" columnClasses="ui-grid-col-12" layout="grid" styleClass="ui-panelgrid-blank">
+				
+					<p:inputText styleClass="form-control" requiredMessage="Inserisci lo user id!" required="true" id="username" value="#{login.username}" />
+			        <p:watermark for="username" value="UserId" id="watermarkUsername" />
+			         
+			         
+					<p:password styleClass="form-control" id="password" value="#{login.pwd}" requiredMessage="Inserisci la password!" required="true" />
+			        <p:watermark for="password" value="Password" id="watermarkPassword" />    
+			    
+			     </p:panelGrid>
+				
+				 <hr class="colorgraph"/><br/>	 			
+			    
+			     <p:commandButton update="messages" styleClass="btn btn-lg btn-block button-qc" style="color:#fff;background-color: #204d74;border-color:#122b40;" 
+			      action="#{login.validateUsernamePassword}" value="Login" />
+			
+			</p:panel>  
+			</div>			
+		</h:form>
+		
+		
+		</div>
+	</div>
+</h:body>
+</html>
