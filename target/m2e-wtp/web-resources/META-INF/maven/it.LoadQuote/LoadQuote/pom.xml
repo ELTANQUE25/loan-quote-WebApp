@@ -33,7 +33,7 @@
 
 	<properties>
 		<spring.version>4.1.6.RELEASE</spring.version>
-		<spring.security.version>3.2.3.RELEASE</spring.security.version>
+		<spring.security.version>5.2.10.RELEASE</spring.security.version>
 		<primafaces.version>7.0</primafaces.version>
 		<hibernate.version>4.1.9.Final</hibernate.version>
 		<poi.version>3.9</poi.version>
