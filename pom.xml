@@ -36,7 +36,7 @@
 		<spring.security.version>3.2.3.RELEASE</spring.security.version>
 		<primafaces.version>7.0</primafaces.version>
 		<hibernate.version>4.1.9.Final</hibernate.version>
-		<poi.version>3.9</poi.version>
+		<poi.version>5.2.1</poi.version>
 	</properties>
 
 
